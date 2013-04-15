@@ -62,7 +62,13 @@ public class Game extends BasicGameState {
 				playerY -= velocityY;
 			}
 		}
+		
+		checkCollision();
 
+	}
+
+	private void checkCollision() {
+		
 	}
 
 	@Override

@@ -2,24 +2,19 @@ package se.olofkarlsson.java.testing;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import se.olofkarlsson.java.testing.Entity.Player;
+
 public class Game extends BasicGameState {
 
 	int accTime;
 	Input input;
-	boolean jumping;
-	float playerX;
-	float playerY;
-	float movementSpeed;
-	float velocityY;
 	float gravity;
-
-	Image player = null;
+	Player player;
 
 	public int getID() {
 		return Main.GAME_STATE;
@@ -28,14 +23,13 @@ public class Game extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		player = new Image("res/player/base.png");
+		player = new Player("res/player/base.png");
 
-		playerX = Main.GAME_WINDOW_SIZE_X / 2;
-		playerY = Main.GAME_WINDOW_SIZE_Y / 2;
+		player.setX(Main.GAME_WINDOW_SIZE_X / 2);
+		player.setY(Main.GAME_WINDOW_SIZE_Y / 2);
 
-		movementSpeed = 4;
 		gravity = 0.4f;
-
+		
 		input = gc.getInput();
 	}
 
@@ -46,20 +40,20 @@ public class Game extends BasicGameState {
 
 		while (accTime > 0) {
 			accTime -= 20;
-			velocityY -= gravity;
+			player.velocityY -= gravity;
 
 			if (input.isKeyDown(Input.KEY_LEFT)) {
-				playerX -= movementSpeed;
+				player.setX(player.getX() - player.movementSpeed);
 			}
 			if (input.isKeyDown(Input.KEY_RIGHT)) {
-				playerX += movementSpeed;
+				player.setX(player.getX() + player.movementSpeed);
 			}
 			if (input.isKeyPressed(Input.KEY_SPACE)) {
-				velocityY = 8.0f;
-				jumping = true;
+				player.velocityY = 8.0f;
+				player.jumping = true;
 			}
-			if (jumping) {
-				playerY -= velocityY;
+			if (player.jumping) {
+				player.setY(player.getY() - player.velocityY);
 			}
 		}
 		
@@ -74,6 +68,6 @@ public class Game extends BasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
-		player.draw(playerX, playerY);
+		player.draw(player.getX(), player.getY());
 	}
 }

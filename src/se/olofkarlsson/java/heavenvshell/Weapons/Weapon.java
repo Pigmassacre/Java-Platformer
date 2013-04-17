@@ -7,7 +7,7 @@ import se.olofkarlsson.java.heavenvshell.Entities.Entity;
 
 public class Weapon extends Entity {
 
-	private Image idle;
+	protected Image idle;
 
 	public Weapon() {
 		// TODO What should be here?

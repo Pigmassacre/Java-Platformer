@@ -36,7 +36,7 @@ public class Splash extends BasicGameState {
 
 		accTime += delta;
 
-		if (accTime > 4000) {
+		if (accTime > 400) {
 			sbg.enterState(Main.GAME_STATE/* , leave, enter */);
 		}
 

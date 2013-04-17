@@ -6,4 +6,9 @@ public class RangedWeapon extends Weapon {
 		// TODO Implement a framework for ranged weapons.
 	}
 	
+	public void draw(float x, float y, float angle) {
+		idle.setRotation(angle);
+		idle.draw(x, y);
+	}
+	
 }

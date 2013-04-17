@@ -20,5 +20,4 @@ public class Player extends StatEntity {
 	public void draw(float x, float y) {
 		playerSprite.draw(x, y);
 	}
-
 }

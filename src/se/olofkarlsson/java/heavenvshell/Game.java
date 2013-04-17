@@ -4,6 +4,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -17,6 +18,8 @@ public class Game extends BasicGameState {
 	float gravity;
 	Player player;
 	Bow bow;
+	Vector2f mousePosition;
+	Vector2f playerPosition;
 
 	public int getID() {
 		return Main.GAME_STATE;
@@ -34,6 +37,8 @@ public class Game extends BasicGameState {
 		gravity = 0.4f;
 
 		input = gc.getInput();
+		mousePosition = new Vector2f();
+		playerPosition = new Vector2f();
 	}
 
 	@Override
@@ -83,7 +88,13 @@ public class Game extends BasicGameState {
 		 * But for now, I'll just render each thing separately here.
 		 */
 
+		mousePosition.set(input.getMouseX(), input.getMouseY());
+		playerPosition.set(player.getX(), player.getY());
+		mousePosition.sub(playerPosition);
+
 		player.draw(player.getX(), player.getY());
-		bow.draw(player.getX() + 16, player.getY() + 0);
+		bow.draw(player.getX() + 16, player.getY() + 0,
+				(float) mousePosition.getTheta());
+
 	}
 }

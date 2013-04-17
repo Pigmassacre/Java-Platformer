@@ -6,9 +6,10 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Main extends StateBasedGame {
-	public static final int MENU_STATE = 1;
-	public static final int GAME_STATE = 2;
-	public static final int PAUSED_STATE = 3;
+	public static final int SPLASH_STATE = 1;
+	public static final int MENU_STATE = 2;
+	public static final int GAME_STATE = 3;
+	public static final int PAUSED_STATE = 4;
 
 	// Settings go here
 	public static int GAME_WINDOW_SIZE_X = 800;
@@ -19,6 +20,7 @@ public class Main extends StateBasedGame {
 	}
 
 	public void initStatesList(GameContainer container) throws SlickException {
+		addState(new Splash());
 		addState(new Game());
 	}
 

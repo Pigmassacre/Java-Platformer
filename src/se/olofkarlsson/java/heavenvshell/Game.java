@@ -7,7 +7,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-
 import se.olofkarlsson.java.heavenvshell.Entities.Player;
 import se.olofkarlsson.java.heavenvshell.Weapons.RangedWeapons.Bow;
 
@@ -28,12 +27,12 @@ public class Game extends BasicGameState {
 			throws SlickException {
 		player = new Player("res/player/base.png");
 		bow = new Bow("res/player/bow.png");
-		
-		player.setX(Main.GAME_WINDOW_SIZE_X / 2);
-		player.setY(Main.GAME_WINDOW_SIZE_Y / 2);
+
+		player.setX(gc.getHeight() / 2);
+		player.setY(gc.getWidth() / 2);
 
 		gravity = 0.4f;
-		
+
 		input = gc.getInput();
 	}
 
@@ -53,7 +52,7 @@ public class Game extends BasicGameState {
 				player.setX(player.getX() + player.movementSpeed);
 			}
 			if (input.isKeyPressed(Input.KEY_SPACE)) {
-				//bow.shoot();
+				// bow.shoot();
 			}
 			if (input.isKeyPressed(Input.KEY_RALT)) {
 				player.velocityY = 8.0f;
@@ -63,7 +62,7 @@ public class Game extends BasicGameState {
 				player.setY(player.getY() - player.velocityY);
 			}
 		}
-		
+
 		checkCollision();
 
 	}
@@ -76,15 +75,14 @@ public class Game extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		// TODO
-		/* I'm thinking the render method should work something like this:
+		/*
+		 * I'm thinking the render method should work something like this:
 		 * 
-		 * renderBackground();
-		 * renderEntities();
-		 * renderGUI();
+		 * renderBackground(); renderEntities(); renderGUI();
 		 * 
 		 * But for now, I'll just render each thing separately here.
 		 */
-		
+
 		player.draw(player.getX(), player.getY());
 		bow.draw(player.getX() + 16, player.getY() + 0);
 	}

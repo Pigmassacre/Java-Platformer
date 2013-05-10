@@ -24,5 +24,9 @@ public class CollisionEntity extends Entity {
 	public void setCollisionShapeY(float y) {
 		collisionShape.setY(y);
 	}
+	
+	public void collidedWithGround() {
+		
+	}
 
 }

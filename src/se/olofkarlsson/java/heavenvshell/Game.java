@@ -43,7 +43,7 @@ public class Game extends BasicGameState {
 		ground3 = new Ground("res/environment/ground-grass.png",
 				gc.getWidth() / 2 - 32, (gc.getHeight() / 2) + 100);
 
-		gravity = 4f;
+		gravity = 0.4f;
 
 		gameworldEntities.add(player);
 		gameworldEntities.add(ground1);
@@ -76,12 +76,15 @@ public class Game extends BasicGameState {
 			if (entity.getCollisionShape().intersects(
 					ground1.getCollisionShape())) {
 				entity.setY(ground1.getY() - ground1.getCollisionShape().getHeight());
+				entity.collidedWithGround();
 			} else if (entity.getCollisionShape().intersects(
 					ground2.getCollisionShape())) {
 				entity.setY(ground2.getY() - ground2.getCollisionShape().getHeight());
+				entity.collidedWithGround();
 			} else if (entity.getCollisionShape().intersects(
 					ground3.getCollisionShape())) {
 				entity.setY(ground3.getY() - ground3.getCollisionShape().getHeight());
+				entity.collidedWithGround();
 			}
 		}
 	}

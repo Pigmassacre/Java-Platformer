@@ -7,12 +7,12 @@ import org.newdawn.slick.SlickException;
 public class Player extends MovableEntity {
 
 	public Image sprite;
-	public boolean jumping;
+	public boolean inAir;
 
 	public Player(String sprite, float posX, float posY) throws SlickException {
 		this.sprite = new Image(sprite);
 
-		jumping = false;
+		inAir = true;
 
 		setX(posX);
 		setY(posY);
@@ -21,7 +21,7 @@ public class Player extends MovableEntity {
 		velocityY = 0f;
 
 		maxSpeedX = 8f;
-		maxSpeedY = 16f;
+		maxSpeedY = 12f;
 
 		acceleration = 0.1f;
 		deceleration = 0.25f;
@@ -41,7 +41,7 @@ public class Player extends MovableEntity {
 				velocityX = -maxSpeedX;
 			}
 		} else if (velocityX < 0) {
-				velocityX += deceleration;
+			velocityX += deceleration;
 			if (velocityX > 0) {
 				velocityX = 0;
 			}
@@ -61,18 +61,32 @@ public class Player extends MovableEntity {
 		}
 
 		if (input.isKeyDown(Input.KEY_RALT)) {
-			if (!jumping) {
-				velocityY = 6f;
-				//jumping = true;
+			if (!inAir) {
+				velocityY = -8f;
+				inAir = true;
 			}
 		} else if (input.isKeyDown(Input.KEY_SPACE)) {
+			// TODO Shoot lemons.
+		}
 
+		if (inAir) {
+			if (velocityY < maxSpeedY) {
+				velocityY += gravity;
+			} else {
+				velocityY = maxSpeedY;
+			}
+		} else {
+			velocityY = 0f;
 		}
 
 		setX(getX() + velocityX);
-		setY(getY() + velocityY + gravity);
+		setY(getY() + velocityY);
 
 		setCollisionShapeX(getX());
 		setCollisionShapeY(getY());
+	}
+	
+	public void collidedWithGround() {
+		inAir = false;
 	}
 }

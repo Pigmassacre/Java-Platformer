@@ -14,7 +14,7 @@ public class RectangleEntity extends Entity {
 		setupCollisionShape(width, height);
 	}
 
-	private void setupCollisionShape(float width, float height) {
+	public void setupCollisionShape(float width, float height) {
 		collisionShape = new Rectangle(getX(), getY(), width, height);
 	}
 

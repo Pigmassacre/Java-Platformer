@@ -8,8 +8,8 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Player;
-import se.olofkarlsson.java.heavenvshell.Weapons.RangedWeapons.Bow;
+import se.olofkarlsson.java.heavenvshell.Entities.*;
+import se.olofkarlsson.java.heavenvshell.Weapons.RangedWeapons.*;
 
 public class Game extends BasicGameState {
 
@@ -17,9 +17,7 @@ public class Game extends BasicGameState {
 	Input input;
 	float gravity;
 	Player player;
-	Bow bow;
-	Vector2f mousePosition;
-	Vector2f playerPosition;
+	Ground ground;
 
 	public int getID() {
 		return Main.GAME_STATE;
@@ -29,16 +27,17 @@ public class Game extends BasicGameState {
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
 		player = new Player("res/player/base.png");
-		bow = new Bow("res/player/bow.png");
+		ground = new Ground("res/environment/ground-grass.png");
 
-		player.setX(gc.getHeight() / 2);
-		player.setY(gc.getWidth() / 2);
+		player.setX(gc.getWidth() / 2);
+		player.setY(gc.getHeight() / 2);
+		
+		ground.setX(gc.getWidth() / 2);
+		ground.setY((gc.getHeight() / 2) + 100);
 
 		gravity = 0.4f;
 
 		input = gc.getInput();
-		mousePosition = new Vector2f();
-		playerPosition = new Vector2f();
 	}
 
 	@Override
@@ -46,6 +45,12 @@ public class Game extends BasicGameState {
 			throws SlickException {
 		accTime += delta;
 
+		player.getCollisionShape().setX(player.getX());
+		player.getCollisionShape().setY(player.getY());
+		
+		ground.getCollisionShape().setX(ground.getX());
+		ground.getCollisionShape().setY(ground.getY());
+		
 		while (accTime > 0) {
 			accTime -= 20;
 			player.velocityY -= gravity;
@@ -74,6 +79,11 @@ public class Game extends BasicGameState {
 
 	private void checkCollision() {
 		// TODO I don't think this should be handled this way.
+		if (player.getCollisionShape().intersects(ground.getCollisionShape())) {
+			player.velocityY = 0f;
+			System.out.println("COLLIDE");
+			System.out.println("player X = " + player.getCollisionShape().getX() + " and ground X = " + ground.getCollisionShape().getX());
+		}
 	}
 
 	@Override
@@ -88,13 +98,8 @@ public class Game extends BasicGameState {
 		 * But for now, I'll just render each thing separately here.
 		 */
 
-		mousePosition.set(input.getMouseX(), input.getMouseY());
-		playerPosition.set(player.getX(), player.getY());
-		mousePosition.sub(playerPosition);
-
-		player.draw(player.getX(), player.getY());
-		bow.draw(player.getX() + 16, player.getY() + 0,
-				(float) mousePosition.getTheta());
+		player.draw();
+		ground.draw();
 
 	}
 }

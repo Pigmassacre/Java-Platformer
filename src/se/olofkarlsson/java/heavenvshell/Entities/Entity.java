@@ -1,5 +1,7 @@
 package se.olofkarlsson.java.heavenvshell.Entities;
 
+import org.newdawn.slick.Input;
+
 /**
  * This class is meant to act as the base for each entity in the game. A unit
  * can be anything from the player, an enemy or a powerup. Basically, any object
@@ -31,4 +33,11 @@ public class Entity {
 	public void setY(float y) {
 		this.y = y;
 	}
+
+	public void update(Input input, float gravity) {
+	}
+
+	public void draw() {
+	}
+
 }

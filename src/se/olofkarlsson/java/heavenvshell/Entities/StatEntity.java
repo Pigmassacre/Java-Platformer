@@ -1,6 +1,6 @@
 package se.olofkarlsson.java.heavenvshell.Entities;
 
-public class StatEntity extends RectangleEntity {
+public class StatEntity extends CollisionEntity {
 
 	private int healthPoints;
 	private int manaPoints;

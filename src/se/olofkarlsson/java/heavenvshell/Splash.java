@@ -36,7 +36,7 @@ public class Splash extends BasicGameState {
 
 		accTime += delta;
 
-		if (accTime > 400) {
+		if (accTime > 0) { // makes splash not shown
 			sbg.enterState(Main.GAME_STATE/* , leave, enter */);
 		}
 

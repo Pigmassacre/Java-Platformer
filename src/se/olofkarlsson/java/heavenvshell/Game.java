@@ -1,5 +1,8 @@
 package se.olofkarlsson.java.heavenvshell;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -16,8 +19,10 @@ public class Game extends BasicGameState {
 	int accTime;
 	Input input;
 	float gravity;
+	List<Entity> gameworldEntities;
+	List<MovableEntity> gameworldMovableEntities;
 	Player player;
-	Ground ground;
+	Ground ground1, ground2, ground3;
 
 	public int getID() {
 		return Main.GAME_STATE;
@@ -26,16 +31,26 @@ public class Game extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		player = new Player("res/player/base.png");
-		ground = new Ground("res/environment/ground-grass.png");
+		gameworldEntities = new ArrayList<Entity>();
+		gameworldMovableEntities = new ArrayList<MovableEntity>();
 
-		player.setX(gc.getWidth() / 2);
-		player.setY(gc.getHeight() / 2);
-		
-		ground.setX(gc.getWidth() / 2);
-		ground.setY((gc.getHeight() / 2) + 100);
+		player = new Player("res/player/base.png", gc.getWidth() / 2,
+				gc.getHeight() / 2);
+		ground1 = new Ground("res/environment/ground-grass.png",
+				gc.getWidth() / 2, (gc.getHeight() / 2) + 100);
+		ground2 = new Ground("res/environment/ground-grass.png",
+				gc.getWidth() / 2 + 32, (gc.getHeight() / 2) + 100);
+		ground3 = new Ground("res/environment/ground-grass.png",
+				gc.getWidth() / 2 - 32, (gc.getHeight() / 2) + 100);
 
-		gravity = 0.4f;
+		gravity = 4f;
+
+		gameworldEntities.add(player);
+		gameworldEntities.add(ground1);
+		gameworldEntities.add(ground2);
+		gameworldEntities.add(ground3);
+
+		gameworldMovableEntities.add(player);
 
 		input = gc.getInput();
 	}
@@ -45,31 +60,10 @@ public class Game extends BasicGameState {
 			throws SlickException {
 		accTime += delta;
 
-		player.getCollisionShape().setX(player.getX());
-		player.getCollisionShape().setY(player.getY());
-		
-		ground.getCollisionShape().setX(ground.getX());
-		ground.getCollisionShape().setY(ground.getY());
-		
 		while (accTime > 0) {
 			accTime -= 20;
-			player.velocityY -= gravity;
-
-			if (input.isKeyDown(Input.KEY_LEFT)) {
-				player.setX(player.getX() - player.movementSpeed);
-			}
-			if (input.isKeyDown(Input.KEY_RIGHT)) {
-				player.setX(player.getX() + player.movementSpeed);
-			}
-			if (input.isKeyPressed(Input.KEY_SPACE)) {
-				// bow.shoot();
-			}
-			if (input.isKeyPressed(Input.KEY_RALT)) {
-				player.velocityY = 8.0f;
-				player.jumping = true;
-			}
-			if (player.jumping) {
-				player.setY(player.getY() - player.velocityY);
+			for (Entity e : gameworldEntities) {
+				e.update(input, gravity);
 			}
 		}
 
@@ -78,18 +72,23 @@ public class Game extends BasicGameState {
 	}
 
 	private void checkCollision() {
-		// TODO I don't think this should be handled this way.
-		if (player.getCollisionShape().intersects(ground.getCollisionShape())) {
-			player.velocityY = 0f;
-			System.out.println("COLLIDE");
-			System.out.println("player X = " + player.getCollisionShape().getX() + " and ground X = " + ground.getCollisionShape().getX());
+		for (MovableEntity entity : gameworldMovableEntities) {
+			if (entity.getCollisionShape().intersects(
+					ground1.getCollisionShape())) {
+				entity.setY(ground1.getY() - ground1.getCollisionShape().getHeight());
+			} else if (entity.getCollisionShape().intersects(
+					ground2.getCollisionShape())) {
+				entity.setY(ground2.getY() - ground2.getCollisionShape().getHeight());
+			} else if (entity.getCollisionShape().intersects(
+					ground3.getCollisionShape())) {
+				entity.setY(ground3.getY() - ground3.getCollisionShape().getHeight());
+			}
 		}
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
-		// TODO
 		/*
 		 * I'm thinking the render method should work something like this:
 		 * 
@@ -98,8 +97,10 @@ public class Game extends BasicGameState {
 		 * But for now, I'll just render each thing separately here.
 		 */
 
-		player.draw();
-		ground.draw();
+		for (Entity e : gameworldEntities) {
+			e.draw();
+		}
 
 	}
+
 }

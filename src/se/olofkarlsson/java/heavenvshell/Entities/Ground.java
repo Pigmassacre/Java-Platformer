@@ -3,9 +3,10 @@ package se.olofkarlsson.java.heavenvshell.Entities;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-public class Ground extends CollisionEntity {
+import se.olofkarlsson.java.heavenvshell.GameworldEntities;
+import se.olofkarlsson.java.heavenvshell.Entities.Core.CollisionEntity;
 
-	public Image sprite;
+public class Ground extends CollisionEntity {
 
 	public Ground(String sprite, float posX, float posY) throws SlickException {
 		this.sprite = new Image(sprite);
@@ -14,6 +15,7 @@ public class Ground extends CollisionEntity {
 		setY(posY);
 
 		this.setupCollisionShape(getX(), getY(), 32, 32);
+		GameworldEntities.gameworldEntities.add(this);
 	}
 
 	public void draw() {

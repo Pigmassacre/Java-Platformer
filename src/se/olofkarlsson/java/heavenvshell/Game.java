@@ -1,26 +1,22 @@
 package se.olofkarlsson.java.heavenvshell;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import se.olofkarlsson.java.heavenvshell.Entities.*;
-import se.olofkarlsson.java.heavenvshell.Weapons.RangedWeapons.*;
+import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
+import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
+import se.olofkarlsson.java.heavenvshell.Entities.Player.Player;
 
 public class Game extends BasicGameState {
 
 	int accTime;
 	Input input;
 	float gravity;
-	List<Entity> gameworldEntities;
-	List<MovableEntity> gameworldMovableEntities;
 	Player player;
 	Ground ground1, ground2, ground3;
 
@@ -31,8 +27,8 @@ public class Game extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		gameworldEntities = new ArrayList<Entity>();
-		gameworldMovableEntities = new ArrayList<MovableEntity>();
+		
+		GameworldEntities.setupGameworld();
 
 		player = new Player("res/player/base.png", gc.getWidth() / 2,
 				gc.getHeight() / 2);
@@ -45,12 +41,12 @@ public class Game extends BasicGameState {
 
 		gravity = 0.4f;
 
-		gameworldEntities.add(player);
-		gameworldEntities.add(ground1);
-		gameworldEntities.add(ground2);
-		gameworldEntities.add(ground3);
+		//GameworldEntities.gameworldEntities.add(player);
+		//GameworldEntities.gameworldEntities.add(ground1);
+		//GameworldEntities.gameworldEntities.add(ground2);
+		//GameworldEntities.gameworldEntities.add(ground3);
 
-		gameworldMovableEntities.add(player);
+		//GameworldEntities.gameworldMovableEntities.add(player);
 
 		input = gc.getInput();
 	}
@@ -62,8 +58,8 @@ public class Game extends BasicGameState {
 
 		while (accTime > 0) {
 			accTime -= 20;
-			for (Entity e : gameworldEntities) {
-				e.update(input, gravity);
+			for (int i = 0; i < GameworldEntities.gameworldEntities.size(); i++) {
+				GameworldEntities.gameworldEntities.get(i).update(input, gravity);
 			}
 		}
 
@@ -72,7 +68,10 @@ public class Game extends BasicGameState {
 	}
 
 	private void checkCollision() {
-		for (MovableEntity entity : gameworldMovableEntities) {
+		MovableEntity entity;
+		
+		for (int i = 0; i < GameworldEntities.gameworldMovableEntities.size(); i++) {
+			entity = GameworldEntities.gameworldMovableEntities.get(i);
 			if (entity.getCollisionShape().intersects(
 					ground1.getCollisionShape())) {
 				entity.setY(ground1.getY() - ground1.getCollisionShape().getHeight());
@@ -100,7 +99,7 @@ public class Game extends BasicGameState {
 		 * But for now, I'll just render each thing separately here.
 		 */
 
-		for (Entity e : gameworldEntities) {
+		for (Entity e : GameworldEntities.gameworldEntities) {
 			e.draw();
 		}
 

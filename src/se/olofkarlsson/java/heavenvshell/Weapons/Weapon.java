@@ -3,7 +3,7 @@ package se.olofkarlsson.java.heavenvshell.Weapons;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Entity;
+import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
 
 public class Weapon extends Entity {
 

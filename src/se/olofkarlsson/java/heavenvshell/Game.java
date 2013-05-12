@@ -8,9 +8,6 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
-import se.olofkarlsson.java.heavenvshell.Entities.*;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
 import se.olofkarlsson.java.heavenvshell.Entities.Player.Player;
 
 public class Game extends BasicGameState {
@@ -35,7 +32,7 @@ public class Game extends BasicGameState {
 		
 		GameworldEntities.setupGameworld(levelMap);
 
-		player = new Player("res/player/base.png", 32, 0);
+		player = new Player("res/player/base.png", 64, 0);
 
 		gravity = 0.4f;
 

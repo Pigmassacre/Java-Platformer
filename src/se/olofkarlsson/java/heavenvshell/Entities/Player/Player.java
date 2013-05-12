@@ -6,12 +6,10 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 
 import se.olofkarlsson.java.heavenvshell.GameworldEntities;
 import se.olofkarlsson.java.heavenvshell.Entities.Arrow;
 import se.olofkarlsson.java.heavenvshell.Entities.Core.CollisionEntity;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
 import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
 
 public class Player extends MovableEntity {
@@ -25,7 +23,7 @@ public class Player extends MovableEntity {
 		this.sprite = new Image(sprite);
 
 		debugGraphics = new Graphics();
-		
+
 		inAir = true;
 
 		setX(posX);
@@ -46,12 +44,13 @@ public class Player extends MovableEntity {
 
 	public void draw() {
 		sprite.draw(getX(), getY());
-		debugGraphics.draw(getCollisionShape());
+		//debugGraphics.draw(getCollisionShape());
 	}
 
 	public void update(Input input, float gravity) {
+		CollisionEntity otherEntity = null;
 		float newX, newY;
-		
+
 		if (input.isKeyDown(Input.KEY_LEFT)) {
 			if (velocityX > -maxSpeedX) {
 				velocityX -= acceleration;
@@ -103,94 +102,65 @@ public class Player extends MovableEntity {
 		} else {
 			velocityY = 0f;
 		}
-		
-		newX = getX() + velocityX;
+
+		newX = getX() + velocityX; // this is where we want to go
 		newY = getY() + velocityY;
 
-		if (checkCollision(newX, newY)) {
-			setX(newX);
-			setY(newY);
-		} else {
+		// handle collision
+
+		setCollisionShapeX(newX); // first check x-axis
+
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision on x-axis!");
+
+				if (velocityX > 0) { // right
+					newX = otherEntity.getCollisionShape().getX()
+							- (getCollisionShape().getWidth() + 1);
+				} else if (velocityX < 0) { // left
+					newX = otherEntity.getCollisionShape().getX()
+							+ (getCollisionShape().getWidth() + 1);
+				} else {
+					newX = getX();
+				}
+
+				velocityX = 0f;
+			}
+		}
+		
+		setX(newX); // update x position now
+		setCollisionShapeX(newX); // re-adjust collision box
+		
+		setCollisionShapeY(newY); // now check y axis
+
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision on y-axis!");
+
+				inAir = false;
+
+				if (velocityY > 0) { // down
+					newY = otherEntity.getCollisionShape().getY()
+							- (getCollisionShape().getHeight() + 1);
+				} else if (velocityY < 0) { // up
+					newY = otherEntity.getCollisionShape().getY()
+							+ (getCollisionShape().getHeight() + 1);
+				} else {
+					newY = getY();
+				}
+				
+				velocityY = 0f;
+			} else {
+				inAir = true;
+			}
 		}
 
-		setCollisionShapeX(getX());
-		setCollisionShapeY(getY());
+		setY(newY); // update y position now
+		setCollisionShapeY(newY); // re-adjust collision box again
 
 		System.out.println("Player pos: " + getX() + " " + getY());
 	}
 
-	public void collidedWithGround() {
-		inAir = false;
-	}
-	
-	public boolean checkCollision(float newX, float newY) {
-		CollisionEntity otherEntity;
-		
-		setCollisionShapeX(newX);
-		setCollisionShapeY(newY);
-		
-		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
-			otherEntity = GameworldEntities.geometryCollision.get(i);
-			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collision!");
-				inAir = false;
-				return false; // collided, cannot move to given pos
-			}
-		}
-		
-		return true; // safe to move to given pos
-	}
-	
-	/*
-	public void checkCollision() {
-		CollisionEntity otherEntity;
-		float maxX = 0f, maxY = 0f, minX = 0f, minY = 0f, otherMaxX = 0f, otherMaxY = 0f, otherMinX = 0f, otherMinY = 0f;
-		float differenceX = 0f, differenceY = 0f;
-		
-		//System.out.println("velocityY: " + velocityY + ", velocityX: " + velocityX);
-		
-		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
-			otherEntity = GameworldEntities.geometryCollision.get(i);
-			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collided with " + otherEntity.toString());
-				if (velocityX > 0) { // the player is moving to the right
-					System.out.println("Moving right!");
-					maxX = getCollisionShape().getMaxX();
-					otherMinX = otherEntity.getCollisionShape().getMinX();
-					differenceX = maxX - otherMinX; // calculate the distance that we should subtract from players x value
-				} else if (velocityX < 0) { // the player is moving to the left
-					System.out.println("Moving left!");
-					minX = getCollisionShape().getMinX();
-					otherMaxX = otherEntity.getCollisionShape().getMaxX();
-					differenceX = minX - otherMaxX; // calculate the distance that we should subtract from players x value
-				}
-				
-				if (velocityY > 0) { // the player is moving down
-					System.out.println("Moving down!");
-					maxY = getCollisionShape().getMaxY();
-					otherMinY = otherEntity.getCollisionShape().getMinY();
-					differenceY = maxY - otherMinY; // calculate the distance that we should subtract from players x value
-				} else if (velocityY < 0) { // the player is moving up
-					System.out.println("Moving up!");
-					minY = getCollisionShape().getMinY();
-					otherMaxY = otherEntity.getCollisionShape().getMaxY();
-					differenceY = minY - otherMaxY; // calculate the distance that we should subtract from players x value
-				}
-				
-				System.out.println("maxX: " + maxX);
-				System.out.println("maxY: " + maxY);
-				System.out.println("minX: " + minX);
-				System.out.println("minY: " + minY);
-				System.out.println("otherMaxX: " + otherMaxX);
-				System.out.println("otherMaxY: " + otherMaxY);
-				System.out.println("otherMinX: " + otherMinX);
-				System.out.println("otherMinY: " + otherMinY);
-				System.out.println("differenceX: " + differenceX + ", differenceY: " + differenceY);
-				
-				System.out.println("New Pos! x: " + (getX() - differenceX) + ", y: " + (getY() - differenceY));
-				setX(getX() - differenceX); // reduce the players x value by the difference between player and otherEntity
-				setY(getY() - differenceY); // and the y value too
-			}
-		} 
-	} */
 }

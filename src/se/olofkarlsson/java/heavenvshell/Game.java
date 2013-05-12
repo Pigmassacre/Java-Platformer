@@ -6,6 +6,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMapPlus;
 
 import se.olofkarlsson.java.heavenvshell.Entities.*;
 import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
@@ -18,7 +19,7 @@ public class Game extends BasicGameState {
 	Input input;
 	float gravity;
 	Player player;
-	Ground ground1, ground2, ground3;
+	TiledMapPlus levelMap;
 
 	public int getID() {
 		return Main.GAME_STATE;
@@ -27,19 +28,16 @@ public class Game extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
+
+		levelMap = new TiledMapPlus("res/levels/test/testmap.tmx");
 		
-		GameworldEntities.setupGameworld();
+		GameworldEntities.initGameworld();
+		
+		GameworldEntities.setupGameworld(levelMap);
 
-		player = new Player("res/player/base.png", gc.getWidth() / 2,
-				gc.getHeight() / 2);
-		ground1 = new Ground("res/environment/ground-grass.png",
-				gc.getWidth() / 2, (gc.getHeight() / 2) + 100);
-		ground2 = new Ground("res/environment/ground-grass.png",
-				gc.getWidth() / 2 + 32, (gc.getHeight() / 2) + 100);
-		ground3 = new Ground("res/environment/ground-grass.png",
-				gc.getWidth() / 2 - 32, (gc.getHeight() / 2) + 100);
+		player = new Player("res/player/base.png", 32, 0);
 
-		gravity = 0.4f;
+		gravity = 0.1f;
 
 		input = gc.getInput();
 	}
@@ -54,52 +52,30 @@ public class Game extends BasicGameState {
 			for (int i = 0; i < GameworldEntities.entities.size(); i++) {
 				GameworldEntities.entities.get(i).update(input, gravity);
 			}
-			
-			for (int i = 0; i < GameworldEntities.movableEntities.size(); i++) {
-				GameworldEntities.movableEntities.get(i).update(input, gravity);
-			}
-		}
 
-		//checkCollision();
-
-	}
-/*
-	private void checkCollision() {
-		MovableEntity entity;
-		
-		for (int i = 0; i < GameworldEntities.movableEntities.size(); i++) {
-			entity = GameworldEntities.movableEntities.get(i);
-			if (entity.getCollisionShape().intersects(
-					ground1.getCollisionShape())) {
-				entity.setY(ground1.getY() - ground1.getCollisionShape().getHeight());
-				entity.collidedWithGround();
-			} else if (entity.getCollisionShape().intersects(
-					ground2.getCollisionShape())) {
-				entity.setY(ground2.getY() - ground2.getCollisionShape().getHeight());
-				entity.collidedWithGround();
-			} else if (entity.getCollisionShape().intersects(
-					ground3.getCollisionShape())) {
-				entity.setY(ground3.getY() - ground3.getCollisionShape().getHeight());
-				entity.collidedWithGround();
+			for (int i = 0; i < GameworldEntities.entitiesMovable.size(); i++) {
+				GameworldEntities.entitiesMovable.get(i).update(input, gravity);
 			}
 		}
 	}
-*/
+
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
-		/*
-		 * I'm thinking the render method should work something like this:
-		 * 
-		 * renderBackground(); renderEntities(); renderGUI();
-		 * 
-		 * But for now, I'll just render each thing separately here.
-		 */
-
-		for (Entity e : GameworldEntities.entities) {
-			e.draw();
+		levelMap.render(0, 0);
+		//levelMap.render(0, 0, 8, 0, 32, 32);
+		
+		for (int i = 0; i < GameworldEntities.entities.size(); i++) {
+			GameworldEntities.entities.get(i).draw();
 		}
-
+		
+		for (int i = 0; i < GameworldEntities.entitiesMovable.size(); i++) {
+			GameworldEntities.entitiesMovable.get(i).draw();
+		}
+		
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			GameworldEntities.geometryCollision.get(i).draw();
+		}
 	}
 
 }

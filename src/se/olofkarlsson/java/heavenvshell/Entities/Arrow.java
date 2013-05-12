@@ -31,8 +31,7 @@ public class Arrow extends Projectile {
 		this.deceleration = deceleration;
 
 		setupCollisionShape(getX(), getY(), 16, 8);
-		GameworldEntities.entities.add(this);
-		GameworldEntities.movableEntities.add(this);
+		GameworldEntities.entitiesMovable.add(this);
 	}
 
 }

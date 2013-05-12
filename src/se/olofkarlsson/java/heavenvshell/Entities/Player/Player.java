@@ -107,23 +107,38 @@ public class Player extends MovableEntity {
 		newX = getX() + velocityX;
 		newY = getY() + velocityY;
 
-		setX(newX);
-		setY(newY);
+		if (checkCollision(newX, newY)) {
+			setX(newX);
+			setY(newY);
+		} else {
+		}
 
 		setCollisionShapeX(getX());
 		setCollisionShapeY(getY());
 
-		//System.out.println("Player pos: " + getX() + " " + getY());
-		
-		checkCollision();
+		System.out.println("Player pos: " + getX() + " " + getY());
 	}
 
 	public void collidedWithGround() {
 		inAir = false;
 	}
 	
-	public void checkCollision() {
+	public boolean checkCollision(float newX, float newY) {
+		CollisionEntity otherEntity;
 		
+		setCollisionShapeX(newX);
+		setCollisionShapeY(newY);
+		
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision!");
+				inAir = false;
+				return false; // collided, cannot move to given pos
+			}
+		}
+		
+		return true; // safe to move to given pos
 	}
 	
 	/*

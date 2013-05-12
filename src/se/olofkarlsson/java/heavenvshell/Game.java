@@ -37,7 +37,7 @@ public class Game extends BasicGameState {
 
 		player = new Player("res/player/base.png", 32, 0);
 
-		gravity = 0.1f;
+		gravity = 0.4f;
 
 		input = gc.getInput();
 	}

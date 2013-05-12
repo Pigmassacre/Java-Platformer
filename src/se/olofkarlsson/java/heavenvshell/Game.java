@@ -41,13 +41,6 @@ public class Game extends BasicGameState {
 
 		gravity = 0.4f;
 
-		//GameworldEntities.gameworldEntities.add(player);
-		//GameworldEntities.gameworldEntities.add(ground1);
-		//GameworldEntities.gameworldEntities.add(ground2);
-		//GameworldEntities.gameworldEntities.add(ground3);
-
-		//GameworldEntities.gameworldMovableEntities.add(player);
-
 		input = gc.getInput();
 	}
 
@@ -58,20 +51,24 @@ public class Game extends BasicGameState {
 
 		while (accTime > 0) {
 			accTime -= 20;
-			for (int i = 0; i < GameworldEntities.gameworldEntities.size(); i++) {
-				GameworldEntities.gameworldEntities.get(i).update(input, gravity);
+			for (int i = 0; i < GameworldEntities.entities.size(); i++) {
+				GameworldEntities.entities.get(i).update(input, gravity);
+			}
+			
+			for (int i = 0; i < GameworldEntities.movableEntities.size(); i++) {
+				GameworldEntities.movableEntities.get(i).update(input, gravity);
 			}
 		}
 
-		checkCollision();
+		//checkCollision();
 
 	}
-
+/*
 	private void checkCollision() {
 		MovableEntity entity;
 		
-		for (int i = 0; i < GameworldEntities.gameworldMovableEntities.size(); i++) {
-			entity = GameworldEntities.gameworldMovableEntities.get(i);
+		for (int i = 0; i < GameworldEntities.movableEntities.size(); i++) {
+			entity = GameworldEntities.movableEntities.get(i);
 			if (entity.getCollisionShape().intersects(
 					ground1.getCollisionShape())) {
 				entity.setY(ground1.getY() - ground1.getCollisionShape().getHeight());
@@ -87,7 +84,7 @@ public class Game extends BasicGameState {
 			}
 		}
 	}
-
+*/
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
@@ -99,7 +96,7 @@ public class Game extends BasicGameState {
 		 * But for now, I'll just render each thing separately here.
 		 */
 
-		for (Entity e : GameworldEntities.gameworldEntities) {
+		for (Entity e : GameworldEntities.entities) {
 			e.draw();
 		}
 

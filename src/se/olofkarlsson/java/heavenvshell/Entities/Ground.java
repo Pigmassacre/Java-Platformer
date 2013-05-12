@@ -15,7 +15,7 @@ public class Ground extends CollisionEntity {
 		setY(posY);
 
 		this.setupCollisionShape(getX(), getY(), 32, 32);
-		GameworldEntities.gameworldEntities.add(this);
+		GameworldEntities.entities.add(this);
 	}
 
 	public void draw() {

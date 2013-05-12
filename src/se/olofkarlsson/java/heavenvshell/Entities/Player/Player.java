@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 
 import se.olofkarlsson.java.heavenvshell.GameworldEntities;
 import se.olofkarlsson.java.heavenvshell.Entities.Arrow;
+import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
 import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
 
 public class Player extends MovableEntity {
@@ -34,8 +35,7 @@ public class Player extends MovableEntity {
 		deceleration = 0.5f;
 
 		setupCollisionShape(getX(), getY(), 32, 32);
-		GameworldEntities.gameworldEntities.add(this);
-		GameworldEntities.gameworldMovableEntities.add(this);
+		GameworldEntities.movableEntities.add(this);
 	}
 
 	public void draw() {
@@ -99,9 +99,22 @@ public class Player extends MovableEntity {
 
 		setCollisionShapeX(getX());
 		setCollisionShapeY(getY());
+		
+		checkCollision();
 	}
 	
 	public void collidedWithGround() {
 		inAir = false;
+	}
+	
+	public void checkCollision() {
+		Entity otherEntity;
+		
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (this.getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				
+			}
+		}
 	}
 }

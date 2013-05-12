@@ -35,8 +35,8 @@ public class Player extends MovableEntity {
 		maxSpeedX = 8f;
 		maxSpeedY = 12f;
 
-		acceleration = 0.25f;
-		deceleration = 0.5f;
+		acceleration = 0.5f;
+		deceleration = 2f;
 
 		setupCollisionShape(getX(), getY(), 32, 32);
 		GameworldEntities.entitiesMovable.add(this);
@@ -44,7 +44,7 @@ public class Player extends MovableEntity {
 
 	public void draw() {
 		sprite.draw(getX(), getY());
-		//debugGraphics.draw(getCollisionShape());
+		// debugGraphics.draw(getCollisionShape());
 	}
 
 	public void update(Input input, float gravity) {
@@ -52,23 +52,13 @@ public class Player extends MovableEntity {
 		float newX, newY;
 
 		if (input.isKeyDown(Input.KEY_LEFT)) {
-			if (velocityX > -maxSpeedX) {
-				velocityX -= acceleration;
-			} else {
-				velocityX = -maxSpeedX;
-			}
+			moveLeft();
+		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
+			moveRight();
 		} else if (velocityX < 0) {
 			velocityX += deceleration;
 			if (velocityX > 0) {
 				velocityX = 0;
-			}
-		}
-
-		if (input.isKeyDown(Input.KEY_RIGHT)) {
-			if (velocityX < maxSpeedX) {
-				velocityX += acceleration;
-			} else {
-				velocityX = maxSpeedX;
 			}
 		} else if (velocityX > 0) {
 			velocityX -= deceleration;
@@ -78,19 +68,11 @@ public class Player extends MovableEntity {
 		}
 
 		if (input.isKeyDown(Input.KEY_RALT)) {
-			if (!inAir) {
-				velocityY = -8f;
-				inAir = true;
-			}
+			jump();
 		}
 
 		if (input.isKeyDown(Input.KEY_SPACE)) {
-			try {
-				new Arrow(getX(), getY() + 16 * random.nextFloat(), 32f, 0f);
-			} catch (SlickException e) {
-				System.err.println("Failed to create projectile, exception: "
-						+ e);
-			}
+			shoot();
 		}
 
 		if (inAir) {
@@ -113,7 +95,8 @@ public class Player extends MovableEntity {
 		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
 			otherEntity = GameworldEntities.geometryCollision.get(i);
 			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collision on x-axis!");
+				System.out.println("Collision on x-axis! velocityX "
+						+ velocityX);
 
 				if (velocityX > 0) { // right
 					newX = otherEntity.getCollisionShape().getX()
@@ -128,29 +111,30 @@ public class Player extends MovableEntity {
 				velocityX = 0f;
 			}
 		}
-		
+
 		setX(newX); // update x position now
 		setCollisionShapeX(newX); // re-adjust collision box
-		
+
 		setCollisionShapeY(newY); // now check y axis
 
 		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
 			otherEntity = GameworldEntities.geometryCollision.get(i);
 			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collision on y-axis!");
+				System.out.println("Collision on y-axis! velocityY: "
+						+ velocityY);
 
 				inAir = false;
 
-				if (velocityY > 0) { // down
+				if (velocityY > gravity) { // down
 					newY = otherEntity.getCollisionShape().getY()
 							- (getCollisionShape().getHeight() + 1);
-				} else if (velocityY < 0) { // up
+				} else if (velocityY < -gravity) { // up
 					newY = otherEntity.getCollisionShape().getY()
 							+ (getCollisionShape().getHeight() + 1);
 				} else {
 					newY = getY();
 				}
-				
+
 				velocityY = 0f;
 			} else {
 				inAir = true;
@@ -160,7 +144,39 @@ public class Player extends MovableEntity {
 		setY(newY); // update y position now
 		setCollisionShapeY(newY); // re-adjust collision box again
 
-		System.out.println("Player pos: " + getX() + " " + getY());
+		System.out.println("Player pos: " + getX() + " " + getY()
+				+ " and inAir: " + inAir);
+	}
+
+	public void moveLeft() {
+		if (velocityX > -maxSpeedX) {
+			velocityX -= acceleration;
+		} else {
+			velocityX = -maxSpeedX;
+		}
+	}
+
+	public void moveRight() {
+		if (velocityX < maxSpeedX) {
+			velocityX += acceleration;
+		} else {
+			velocityX = maxSpeedX;
+		}
+	}
+
+	public void jump() {
+		if (!inAir) {
+			velocityY = -8f;
+			inAir = true;
+		}
+	}
+
+	public void shoot() {
+		try {
+			new Arrow(getX(), getY() + 16 * random.nextFloat(), 32f, 0f);
+		} catch (SlickException e) {
+			System.err.println("Failed to create projectile, exception: " + e);
+		}
 	}
 
 }

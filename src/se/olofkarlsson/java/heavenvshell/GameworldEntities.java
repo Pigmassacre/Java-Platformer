@@ -6,13 +6,13 @@ import java.util.List;
 import org.newdawn.slick.tiled.Tile;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Core.CollisionEntity;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.CollisionEntity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.GameObject;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.MovableEntity;
 
 public class GameworldEntities {
 
-	public static List<Entity> entities;
+	public static List<GameObject> entities;
 	public static List<Tile> geometry;
 	public static List<CollisionEntity> geometryCollision;
 	public static List<MovableEntity> entitiesMovable;
@@ -22,7 +22,7 @@ public class GameworldEntities {
 	}
 
 	public static void initGameworld() {
-		entities = new ArrayList<Entity>();
+		entities = new ArrayList<GameObject>();
 		entitiesMovable = new ArrayList<MovableEntity>();
 		geometry = new ArrayList<Tile>();
 		geometryCollision = new ArrayList<CollisionEntity>();

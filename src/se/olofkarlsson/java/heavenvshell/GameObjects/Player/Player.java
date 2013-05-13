@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.heavenvshell.Entities.Player;
+package se.olofkarlsson.java.heavenvshell.GameObjects.Player;
 
 import java.util.Random;
 
@@ -10,9 +10,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import se.olofkarlsson.java.heavenvshell.GameworldEntities;
-import se.olofkarlsson.java.heavenvshell.Entities.Arrow;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.CollisionEntity;
-import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Arrow;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.CollisionEntity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.MovableEntity;
 
 public class Player extends MovableEntity {
 

@@ -1,9 +1,9 @@
-package se.olofkarlsson.java.heavenvshell.Entities.Core;
+package se.olofkarlsson.java.heavenvshell.GameObjects.Core;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
-public class CollisionEntity extends Entity {
+public class CollisionEntity extends GameObject {
 
 	private Rectangle collisionShape;
 	public Graphics debugGraphics;

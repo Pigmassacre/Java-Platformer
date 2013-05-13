@@ -1,9 +1,9 @@
-package se.olofkarlsson.java.heavenvshell.Entities;
+package se.olofkarlsson.java.heavenvshell.GameObjects;
 
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Core.MovableEntity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.MovableEntity;
 
 public class Projectile extends MovableEntity {
 

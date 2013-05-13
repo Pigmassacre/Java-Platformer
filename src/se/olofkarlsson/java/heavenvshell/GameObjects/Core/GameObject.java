@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.heavenvshell.Entities.Core;
+package se.olofkarlsson.java.heavenvshell.GameObjects.Core;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
@@ -11,7 +11,7 @@ import org.newdawn.slick.Input;
  * @author Pigmassacre
  * 
  */
-public abstract class Entity {
+public abstract class GameObject {
 
 	public Image sprite;
 	

@@ -3,9 +3,9 @@ package se.olofkarlsson.java.heavenvshell.Weapons;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Core.Entity;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Core.GameObject;
 
-public class Weapon extends Entity {
+public class Weapon extends GameObject {
 
 	protected Image idle;
 

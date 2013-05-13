@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.heavenvshell.Entities.Core;
+package se.olofkarlsson.java.heavenvshell.GameObjects.Core;
 
 public abstract class StatEntity extends CollisionEntity {
 

@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.heavenvshell.Entities;
+package se.olofkarlsson.java.heavenvshell.GameObjects;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

@@ -8,7 +8,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
-import se.olofkarlsson.java.heavenvshell.Entities.Player.Player;
+import se.olofkarlsson.java.heavenvshell.GameObjects.Player.Player;
 
 public class Game extends BasicGameState {
 

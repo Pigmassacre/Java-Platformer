@@ -32,7 +32,7 @@ public class Game extends BasicGameState {
 		
 		GameworldEntities.setupGameworld(levelMap);
 
-		player = new Player("res/player/base.png", 64, 0);
+		player = new Player("res/player/base.png", 64, 64);
 
 		gravity = 0.4f;
 

@@ -44,22 +44,23 @@ public class Player extends MovableEntity {
 
 	public void draw() {
 		sprite.draw(getX(), getY());
-		// debugGraphics.draw(getCollisionShape());
+		debugGraphics.draw(getCollisionShape());
 	}
 
 	public void update(Input input, float gravity) {
-		CollisionEntity otherEntity = null;
 		float newX, newY;
 
 		if (input.isKeyDown(Input.KEY_LEFT)) {
 			moveLeft();
-		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
-			moveRight();
 		} else if (velocityX < 0) {
 			velocityX += deceleration;
 			if (velocityX > 0) {
 				velocityX = 0;
 			}
+		}
+
+		if (input.isKeyDown(Input.KEY_RIGHT)) {
+			moveRight();
 		} else if (velocityX > 0) {
 			velocityX -= deceleration;
 			if (velocityX < 0) {
@@ -90,62 +91,15 @@ public class Player extends MovableEntity {
 
 		// handle collision
 
-		setCollisionShapeX(newX); // first check x-axis
+		newCheckCollision(newX, newY);
+		
+		setX(newX);
+		setY(newY);
 
-		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
-			otherEntity = GameworldEntities.geometryCollision.get(i);
-			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collision on x-axis! velocityX "
-						+ velocityX);
+		//System.out.println("newX: " + newX + ", newY: " + newY);
 
-				if (velocityX > 0) { // right
-					newX = otherEntity.getCollisionShape().getX()
-							- (getCollisionShape().getWidth() + 1);
-				} else if (velocityX < 0) { // left
-					newX = otherEntity.getCollisionShape().getX()
-							+ (getCollisionShape().getWidth() + 1);
-				} else {
-					newX = getX();
-				}
-
-				velocityX = 0f;
-			}
-		}
-
-		setX(newX); // update x position now
-		setCollisionShapeX(newX); // re-adjust collision box
-
-		setCollisionShapeY(newY); // now check y axis
-
-		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
-			otherEntity = GameworldEntities.geometryCollision.get(i);
-			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
-				System.out.println("Collision on y-axis! velocityY: "
-						+ velocityY);
-
-				inAir = false;
-
-				if (velocityY > gravity) { // down
-					newY = otherEntity.getCollisionShape().getY()
-							- (getCollisionShape().getHeight() + 1);
-				} else if (velocityY < -gravity) { // up
-					newY = otherEntity.getCollisionShape().getY()
-							+ (getCollisionShape().getHeight() + 1);
-				} else {
-					newY = getY();
-				}
-
-				velocityY = 0f;
-			} else {
-				inAir = true;
-			}
-		}
-
-		setY(newY); // update y position now
-		setCollisionShapeY(newY); // re-adjust collision box again
-
-		System.out.println("Player pos: " + getX() + " " + getY()
-				+ " and inAir: " + inAir);
+		// System.out.println("Player pos: " + getX() + " " + getY()
+		// + " and inAir: " + inAir);
 	}
 
 	public void moveLeft() {
@@ -177,6 +131,139 @@ public class Player extends MovableEntity {
 		} catch (SlickException e) {
 			System.err.println("Failed to create projectile, exception: " + e);
 		}
+	}
+
+	public void newCheckCollision(float newX, float newY) {
+		CollisionEntity otherEntity = null;
+		float wy, hx;
+
+		setCollisionShapeX(newX);
+		setCollisionShapeY(newY);
+
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision! velocityX " + velocityX
+						+ ", velocityY " + velocityY);
+
+				wy = (getCollisionShape().getWidth() + otherEntity
+						.getCollisionShape().getWidth())
+						* (getCollisionShape().getCenterY() - otherEntity
+								.getCollisionShape().getCenterY());
+				hx = (getCollisionShape().getHeight() + otherEntity
+						.getCollisionShape().getHeight())
+						* (getCollisionShape().getCenterX() - otherEntity
+								.getCollisionShape().getCenterX());
+
+				if (wy > hx) {
+					if (wy > -hx) {
+						/* top */
+						System.out.println("top");
+						newY = otherEntity.getCollisionShape().getMaxY();
+						velocityY = 0f;
+					} else {
+						/* left */
+						System.out.println("left");
+						newX = otherEntity.getCollisionShape().getMinX()
+								- getCollisionShape().getWidth();
+						velocityX = 0f;
+					}
+				} else {
+					if (wy > -hx) {
+						/* right */
+						System.out.println("right");
+						newX = otherEntity.getCollisionShape().getMaxX();
+						velocityX = 0f;
+					} else {
+						/* bottom */
+						System.out.println("bottom");
+						newY = otherEntity.getCollisionShape().getMinY()
+								- getCollisionShape().getHeight();
+						velocityY = 0f;
+					}
+				}
+			}
+		}
+	}
+
+	public void oldCheckCollision(float newX, float newY) {
+		CollisionEntity otherEntity = null;
+
+		setCollisionShapeX(newX); // first check x-axis
+
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision on x-axis! velocityX "
+						+ velocityX);
+
+				float wy = (getCollisionShape().getWidth() + otherEntity
+						.getCollisionShape().getWidth())
+						* (getCollisionShape().getCenterY() - otherEntity
+								.getCollisionShape().getCenterY());
+				float hx = (getCollisionShape().getHeight() + otherEntity
+						.getCollisionShape().getHeight())
+						* (getCollisionShape().getCenterX() - otherEntity
+								.getCollisionShape().getCenterX());
+
+				if (hx > wy) {
+					if (wy > -hx) {
+						/* right side of B hit */
+						newX = otherEntity.getCollisionShape().getMaxX();
+					}
+				} else {
+					if (!(wy > -hx)) {
+						/* left side of B hit */
+						newX = otherEntity.getCollisionShape().getMinX()
+								- getCollisionShape().getWidth();
+					}
+				}
+
+				velocityX = 0f;
+			}
+		}
+
+		setX(newX); // update x position now
+		setCollisionShapeX(newX); // re-adjust collision box
+
+		setCollisionShapeY(newY); // now check y axis
+
+		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+			otherEntity = GameworldEntities.geometryCollision.get(i);
+			if (getCollisionShape().intersects(otherEntity.getCollisionShape())) {
+				System.out.println("Collision on y-axis! velocityY: "
+						+ velocityY);
+
+				float wy = (getCollisionShape().getWidth() + otherEntity
+						.getCollisionShape().getWidth())
+						* (getCollisionShape().getCenterY() - otherEntity
+								.getCollisionShape().getCenterY());
+				float hx = (getCollisionShape().getHeight() + otherEntity
+						.getCollisionShape().getHeight())
+						* (getCollisionShape().getCenterX() - otherEntity
+								.getCollisionShape().getCenterX());
+
+				if (hx > wy) {
+					if (!(wy > -hx)) {
+						/* bottom side of B hit */
+						newY = otherEntity.getCollisionShape().getMinY()
+								- getCollisionShape().getHeight();
+
+					}
+				} else {
+					if (wy > -hx) {
+						/* top side of B hit */
+						newY = otherEntity.getCollisionShape().getMaxY();
+					}
+				}
+
+				inAir = false;
+				velocityY = 0f;
+			}
+		}
+
+		setY(newY); // update y position now
+		setCollisionShapeY(newY); // re-adjust collision box again
 	}
 
 }

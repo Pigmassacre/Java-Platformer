@@ -58,7 +58,7 @@ public class Game extends BasicGameState {
 			}
 		}
 		
-		camera.centerOn(player.getX(), player.getY());
+		camera.centerOn(player.getX() + (player.getCollisionShape().getWidth() / 2), player.getY() + (player.getCollisionShape().getHeight() / 2));
 	}
 
 	@Override
@@ -78,8 +78,10 @@ public class Game extends BasicGameState {
 		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
 			GameworldEntities.geometryCollision.get(i).draw();
 		}
-		
+
 		camera.untranslateGraphics();
+		
+		g.drawRect((gc.getWidth() / 2) - 16, (gc.getHeight() / 2) - 16, 32, 32);
 	}
 	
 }

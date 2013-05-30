@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="armeabi-v7a">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../libs/libgdx/armeabi-v7a" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Grass" tilewidth="32" tileheight="32">
+  <image source="../../tilesets/basic/grass/grass.png" width="256" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="mask" value="true"/>
+    <property name="masktype" value="rectangle"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="mask" value="true"/>
+    <property name="masktype" value="rectangle"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="BaseLayer" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztld0KwCAIhe2y93/hXQUh/h21jUHCYRc1PzO1SUTzY3VaN38I6o7D8+PFV42hwrfWPUaUb+W/kz+279Kb58/0wspPxP9uQ1i3fHkxaP6tf7T4eAxe70lxR2tL2tNxDxU+ET5vMnZi/p7gI7lAZvXiZ/LMGfu88Ppe2yv508QZyGyPvAfI+yWdRetrbW+EXzXkPexkR8/NOZn+8GolykZYSK1U+J0slH+abfHfYE+q18/V1dW/9ABMnRNx
+  </data>
+ </layer>
+</map>

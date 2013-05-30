@@ -1,27 +1,57 @@
 package se.olofkarlsson.java.platformer;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMapPlus;
+import com.badlogic.gdx.Game;
 
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.FPSLogger;
 import se.olofkarlsson.java.platformer.GameObjects.Player.Player;
 
-public class Game extends BasicGameState {
+public class GameLoop extends Game {
+
+    public static final string LOG = GameLoop.class.getSimpleName();
+
+    private FPSLogger fpsLogger;
 
 	int accTime;
 	Input input;
 	float gravity;
 	Player player;
-	TiledMapPlus levelMap;
 	Camera camera;
 
-	public int getID() {
-		return Main.GAME_STATE;
-	}
+    @Override
+	public void create() {
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void render() {
+        camera.drawMap();
+        camera.translateGraphics();
+
+        for (int i = 0; i < GameworldEntities.entities.size(); i++) {
+            GameworldEntities.entities.get(i).draw();
+        }
+
+        for (int i = 0; i < GameworldEntities.entitiesMovable.size(); i++) {
+            GameworldEntities.entitiesMovable.get(i).draw();
+        }
+
+        for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
+            GameworldEntities.geometryCollision.get(i).draw();
+        }
+
+        camera.untranslateGraphics();
+
+        g.drawRect((gc.getWidth() / 2) - 16, (gc.getHeight() / 2) - 16, 32, 32);
+
+        fpsLogger.log();
+    }
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
@@ -59,29 +89,6 @@ public class Game extends BasicGameState {
 		}
 		
 		camera.centerOn(player.getX() + (player.getCollisionShape().getWidth() / 2), player.getY() + (player.getCollisionShape().getHeight() / 2));
-	}
-
-	@Override
-	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
-			throws SlickException {
-		camera.drawMap();
-		camera.translateGraphics();
-		
-		for (int i = 0; i < GameworldEntities.entities.size(); i++) {
-			GameworldEntities.entities.get(i).draw();
-		}
-
-		for (int i = 0; i < GameworldEntities.entitiesMovable.size(); i++) {
-			GameworldEntities.entitiesMovable.get(i).draw();
-		}
-
-		for (int i = 0; i < GameworldEntities.geometryCollision.size(); i++) {
-			GameworldEntities.geometryCollision.get(i).draw();
-		}
-
-		camera.untranslateGraphics();
-		
-		g.drawRect((gc.getWidth() / 2) - 16, (gc.getHeight() / 2) - 16, 32, 32);
 	}
 	
 }

@@ -1,25 +1,14 @@
 package se.olofkarlsson.java.platformer.GameObjects.Core;
 
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.geom.Rectangle;
 
 public class CollisionEntity extends GameObject {
-
+    /*
 	private Rectangle collisionShape;
 	public Graphics debugGraphics;
 
 	public CollisionEntity() {
 	}
 
-	/**
-	 * Create a CollisionShape at the given position, with given width and
-	 * height.
-	 * 
-	 * @param x	the x position to create the shape at
-	 * @param y the y position to create the shape at
-	 * @param width the width of the shape
-	 * @param height the height of the shape
-	 */
 	public void setupCollisionShape(float x, float y, float width, float height) {
 		debugGraphics = new Graphics();
 		collisionShape = new Rectangle(x, y, width, height);
@@ -52,7 +41,7 @@ public class CollisionEntity extends GameObject {
 	public float collidedOnYAxis(float newY, CollisionEntity otherEntity) {
 		return 0f;
 	}
-	/*
+
 	public void draw() {
 		debugGraphics.draw(collisionShape);
 	}

@@ -16,15 +16,5 @@ public class Main extends Game {
 	public void create() {
 
     }
-     /*
-	public void initStatesList(GameContainer container) throws SlickException {
-		addState(new Splash());
-		addState(new Game());
-	}
 
-	public static void main(String[] args) throws SlickException {
-		AppGameContainer app = new AppGameContainer(new Main());
-		app.setDisplayMode(GAME_WINDOW_SIZE_X, GAME_WINDOW_SIZE_Y, false);
-		app.start();
-	}  */
 }

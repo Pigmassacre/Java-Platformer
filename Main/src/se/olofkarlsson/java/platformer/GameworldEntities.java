@@ -8,7 +8,7 @@ import se.olofkarlsson.java.platformer.GameObjects.Core.GameObject;
 import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
 
 public class GameworldEntities {
-
+    /*
 	public static List<GameObject> entities;
 	public static List<Tile> geometry;
 	public static List<CollisionEntity> geometryCollision;
@@ -52,4 +52,5 @@ public class GameworldEntities {
 			}
 		}
 	}
+	*/
 }

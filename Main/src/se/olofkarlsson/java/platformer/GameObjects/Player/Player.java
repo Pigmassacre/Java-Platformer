@@ -1,21 +1,13 @@
 package se.olofkarlsson.java.platformer.GameObjects.Player;
-
+/*
 import java.util.Random;
-
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
-
 import se.olofkarlsson.java.platformer.GameworldEntities;
 import se.olofkarlsson.java.platformer.GameObjects.Arrow;
 import se.olofkarlsson.java.platformer.GameObjects.Core.CollisionEntity;
 import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
-
-public class Player extends MovableEntity {
-
+       */
+//public class Player extends MovableEntity {
+    /*
 	private Random random = new Random();
 	public Graphics debugGraphics;
 	public boolean inAir;
@@ -225,14 +217,14 @@ public class Player extends MovableEntity {
 
 		if (hx > wy) {
 			if (wy > -hx) {
-				/* right side of B hit */
+				// right side of B hit
 				System.out.println("right");
 				newX = otherEntity.getCollisionShape().getMaxX();
 				velocityX = 0f;
 			}
 		} else {
 			if (!(wy > -hx)) {
-				/* left side of B hit */
+				// left side of B hit
 				System.out.println("left");
 				newX = otherEntity.getCollisionShape().getMinX()
 						- getCollisionShape().getWidth();
@@ -255,7 +247,7 @@ public class Player extends MovableEntity {
 
 		if (hx > wy) {
 			if (!(wy > -hx)) {
-				/* bottom side of B hit */
+				// bottom side of B hit
 				System.out.println("bottom");
 				newY = otherEntity.getCollisionShape().getMinY()
 						- getCollisionShape().getHeight();
@@ -264,7 +256,7 @@ public class Player extends MovableEntity {
 			}
 		} else {
 			if (wy > -hx) {
-				/* top side of B hit */
+				// top side of B hit
 				System.out.println("top");
 				newY = otherEntity.getCollisionShape().getMaxY();
 				if (velocityY < 0) {
@@ -281,5 +273,5 @@ public class Player extends MovableEntity {
 			inAir = false;
 		}
 	}
-
-}
+      */
+//}

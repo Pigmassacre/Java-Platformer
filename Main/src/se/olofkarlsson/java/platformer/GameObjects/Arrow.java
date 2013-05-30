@@ -1,12 +1,7 @@
 package se.olofkarlsson.java.platformer.GameObjects;
 
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
-import se.olofkarlsson.java.platformer.GameworldEntities;
-
-public class Arrow extends Projectile {
-
+//public class Arrow extends Projectile {
+    /*
 	public Arrow(float x, float y, float velocityX, float velocityY)
 			throws SlickException {
 		this(x, y, velocityX, velocityY, 0.25f, 0.5f);
@@ -33,5 +28,5 @@ public class Arrow extends Projectile {
 		setupCollisionShape(getX(), getY(), 16, 8);
 		GameworldEntities.entitiesMovable.add(this);
 	}
-
-}
+    */
+//}

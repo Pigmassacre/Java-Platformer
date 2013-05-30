@@ -1,18 +1,7 @@
 package se.olofkarlsson.java.platformer.GameObjects.Core;
 
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-
-/**
- * This class is meant to act as the base for each entity in the game. A unit
- * can be anything from the player, an enemy or a powerup. Basically, any object
- * that is represented in the game world via graphics.
- * 
- * @author Pigmassacre
- * 
- */
 public abstract class GameObject {
-
+    /*
 	public Image sprite;
 	
 	private float x;
@@ -39,5 +28,5 @@ public abstract class GameObject {
 
 	public void draw() {
 	}
-
+    */
 }

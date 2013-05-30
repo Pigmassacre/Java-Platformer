@@ -1,12 +1,9 @@
 package se.olofkarlsson.java.platformer.GameObjects;
 
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-
 import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
 
-public class Projectile extends MovableEntity {
-
+//public class Projectile extends MovableEntity {
+    /*
 	public boolean inAir;
 
 	public Projectile() throws SlickException {
@@ -37,4 +34,5 @@ public class Projectile extends MovableEntity {
 	public void collidedWithGround() {
 		inAir = false;
 	}
-}
+	*/
+//}

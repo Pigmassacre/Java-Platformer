@@ -1,33 +1,80 @@
-package se.olofkarlsson.java.platformer.GameObjects.Player;
-/*
-import java.util.Random;
-import se.olofkarlsson.java.platformer.GameworldEntities;
-import se.olofkarlsson.java.platformer.GameObjects.Arrow;
-import se.olofkarlsson.java.platformer.GameObjects.Core.CollisionEntity;
-import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
-       */
-//public class Player extends MovableEntity {
-    /*
-	private Random random = new Random();
-	public Graphics debugGraphics;
-	public boolean inAir;
-	public Animation currentAnimation;
-	public Animation standing;
-	public Animation runningLeft;
-	public Animation runningRight;
-	public Animation falling;
-	public Animation jumpingLeft;
-	public Animation jumpingRight;
-	public Animation jumpingUp;
-	public SpriteSheet standingSS;
-	public SpriteSheet runningLeftSS;
-	public SpriteSheet runningRightSS;
-	public SpriteSheet fallingSS;
-	public SpriteSheet jumpingLeftSS;
-	public SpriteSheet jumpingRightSS;
-	public SpriteSheet jumpingUpSS;
+package se.olofkarlsson.java.platformer.domain;
 
-	public Player(String sprite, float posX, float posY) throws SlickException {
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+
+public class Unit extends Image {
+
+    public Unit() {
+    }
+
+    public enum State {
+        IDLE, WALKING, RUNNING, JUMPING, DYING
+    }
+
+    private static final float MAX_X_SPEED = 8f;
+
+    private static final float JUMP_VELOCITY = 4f;
+
+    private static final float MAX_Y_SPEED = 16f;
+
+    private Vector2 position;
+    private Vector2 velocity;
+    private Vector2 acceleration;
+
+    private boolean onGround;
+
+    private Animation idleAnimation;
+    private Texture idleSheet;
+    private TextureRegion[] idleFrames;
+    /**
+    private Animation walkingAnimation;
+    private Texture walkingSheet;
+    private TextureRegion[] walkingFrames;
+     **/
+    private Animation runningLeftAnimation;
+    private Texture runningLeftSheet;
+    private TextureRegion[] runningLeftFrames;
+
+    private Animation runningRightAnimation;
+    private Texture runningRightSheet;
+    private TextureRegion[] runningRightFrames;
+
+    private Animation jumpingUpAnimation;
+    private Texture jumpingUpSheet;
+    private TextureRegion[] jumpingUpFrames;
+
+    private Animation jumpingLeftAnimation;
+    private Texture jumpingLeftSheet;
+    private TextureRegion[] jumpingLeftFrames;
+
+    private Animation jumpingRightAnimation;
+    private Texture jumpingRightSheet;
+    private TextureRegion[] jumpingRightFrames;
+
+    private Animation fallingAnimation;
+    private Texture fallingSheet;
+    private TextureRegion[] fallingFrames;
+    /**
+    private Animation dyingAnimation;
+    private Texture dyingSheet;
+    private TextureRegion[] dyingFrames;
+     **/
+    private Animation currentAnimation;
+    private SpriteBatch spriteBatch;
+    private TextureRegion currentFrame;
+
+    public Unit(String spriteSheet, float posX, float posY) {
+
+    }
+
+    /*
+
+	public player(String sprite, float posX, float posY) throws SlickException {
 		this.sprite = new Image(sprite);
 		standingSS = new SpriteSheet("res/player/player-base-standing.png", 32,
 				32);
@@ -274,4 +321,4 @@ import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
 		}
 	}
       */
-//}
+}

@@ -2,26 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/splash/pigmassacrestudios_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/MenuScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/SplashScreen.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Android/assets/pigmassacreproductions/pigmassacrestudios_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Splash.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Weapons/MeleeWeapon.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Weapons/RangedWeapon.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Weapons/RangedWeapons/Bow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Weapons/Weapon.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Game.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android/src/com/example/Android/AndroidStarter.java" afterPath="$PROJECT_DIR$/Android/src/com/example/Android/AndroidStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Arrow.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Arrow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionEntity.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Desktop/src/se/olofkarlsson/java/platformer/desktop/DesktopStarter.java" afterPath="$PROJECT_DIR$/Desktop/src/se/olofkarlsson/java/platformer/desktop/DesktopStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/GameObject.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/GameObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/CollisionHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Level.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/services/LevelManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/LevelScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/SplashScreen.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/SplashScreen.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Arrow.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/Arrow.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionEntity.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/CollisionEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionObject.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/CollisionObject.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/GameObject.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/GameObject.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/MovableEntity.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/MovableEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/StatEntity.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/StatEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Player/Player.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Unit.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Projectile.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/Projectile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/AbstractScreen.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/MenuScreen.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/MenuScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameworldEntities.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameworldEntities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Main.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Player/Player.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Projectile.java" afterPath="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Projectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="2D-Platformer.iws" />
@@ -32,11 +31,16 @@
     <file path="/DesktopStarter.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369941418815" ignored="false" />
     <file path="/AndroidStarter.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369941431275" ignored="false" />
     <file path="/fragment.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369939686262" ignored="false" />
-    <file path="/Dummy.txt" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369950715676" ignored="false" />
+    <file path="/Dummy.txt" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369992136937" ignored="false" />
     <file path="/Game.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369941074534" ignored="false" />
-    <file path="/AbstractScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369940844776" ignored="false" />
+    <file path="/AbstractScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369995691757" ignored="false" />
     <file path="/MenuScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369939712258" ignored="false" />
-    <file path="/SplashScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369950507699" ignored="false" />
+    <file path="/SplashScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369995195655" ignored="false" />
+    <file path="/LevelScreen.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369995801732" ignored="false" />
+    <file path="/LevelManager.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369996151593" ignored="false" />
+    <file path="/Level.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369996389017" ignored="false" />
+    <file path="/Player.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369998213637" ignored="false" />
+    <file path="/Unit.java" changelist="c63d217d-b4b2-4b60-9a2b-5d4a0629f3df" time="1369997397977" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +121,25 @@
       <file leaf-file-name="GameLoop.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="40" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+            <state line="19" column="26" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/AbstractScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="22" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/services/LevelManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,13 +147,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java">
+      <file leaf-file-name="Unit.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="53" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
+            <state line="71" column="8" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.28546712">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Level.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/LevelScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,27 +179,29 @@
       <file leaf-file-name="DesktopStarter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Desktop/src/se/olofkarlsson/java/platformer/desktop/DesktopStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SplashScreen.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/SplashScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="33" selection-start="1126" selection-end="1126" vertical-scroll-proportion="1.5648855">
+            <state line="1" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/MenuScreen.java">
+      <file leaf-file-name="SplashScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/SplashScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="58" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1433#1646#0" expanded="true" />
+                <element signature="e#1631#1632#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/MenuScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="47" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -183,14 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Weapons/AbstractScreen.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/AbstractScreen.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionEntity.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/GameObject.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Arrow.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Projectile.java" />
-        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameworldEntities.java" />
         <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Splash.java" />
         <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Main.java" />
         <option value="$PROJECT_DIR$/Android/src/com/example/Android/AndroidStarter.java" />
@@ -199,11 +233,19 @@
         <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java" />
         <option value="$PROJECT_DIR$/Desktop/src/se/olofkarlsson/java/platformer/desktop/DesktopStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/LevelScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/LevelScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/player/Player.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Level.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/services/LevelManager.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Player.java" />
+        <option value="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Unit.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1367" />
+    <option name="x" value="-1" />
     <option name="y" value="-4" />
     <option name="width" value="1368" />
     <option name="height" value="773" />
@@ -234,6 +276,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -310,7 +353,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Screens" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,7 +379,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GameObjects" />
+              <option name="myItemId" value="screens" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,11 +405,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GameObjects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Core" />
+              <option name="myItemId" value="gameobjects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,25 +423,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2D-Platformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntelliJ" />
+              <option name="myItemId" value="platformer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Desktop" />
+              <option name="myItemId" value="gameobjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -416,7 +449,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Desktop" />
+              <option name="myItemId" value="Main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -424,90 +457,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2D-Platformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntelliJ" />
+              <option name="myItemId" value="platformer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2D-Platformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntelliJ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2D-Platformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntelliJ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2D-Platformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntelliJ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="splash" />
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -517,7 +477,7 @@
     <property name="jdk.selected.JAVA_MODULE" value="Android 4.2.2 Platform" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.updates" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../libs/libgdx/armeabi-v7a" />
@@ -527,9 +487,9 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -537,6 +497,9 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DesktopStarter">
@@ -572,19 +535,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -610,6 +560,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -730,10 +693,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1367" y="-4" width="1368" height="773" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="100" y="124" width="1168" height="573" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -743,14 +705,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6704" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="124" width="1168" height="573" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -822,73 +785,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="95" selection-end="95" vertical-scroll-proportion="0.2016129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/CollisionEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="55" selection-start="109" selection-end="109" vertical-scroll-proportion="0.114503816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="77" selection-start="122" selection-end="122" vertical-scroll-proportion="0.15267175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Core/StatEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="81" selection-end="81" vertical-scroll-proportion="0.07633588">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Arrow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="32" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="2" selection-start="702" selection-end="702" vertical-scroll-proportion="0.77099234">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/AbstractScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="53" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameworldEntities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="533" selection-end="533" vertical-scroll-proportion="0.57251906">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="59" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android/src/com/example/Android/AndroidStarter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="96" selection-start="295" selection-end="295" vertical-scroll-proportion="0.1816609">
@@ -898,47 +794,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/MenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="58" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameObjects/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="39" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android/assets/splash/pigmassacrestudios_logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/Arrow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="40" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+        <state line="12" column="58" selection-start="454" selection-end="454" vertical-scroll-proportion="0.29950082">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="39" selection-start="248" selection-end="248" vertical-scroll-proportion="0.39933443">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/gameobjects/core/CollisionObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="49" selection-start="227" selection-end="227" vertical-scroll-proportion="0.29950082">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/MenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="47" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1433#1646#0" expanded="true" />
+            <element signature="e#1631#1632#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Desktop/src/se/olofkarlsson/java/platformer/desktop/DesktopStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="34" selection-start="400" selection-end="400" vertical-scroll-proportion="0.3633218">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/GameworldEntities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="34" selection-start="533" selection-end="533" vertical-scroll-proportion="0.25951558">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/Screens/SplashScreen.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/LevelScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="33" selection-start="1126" selection-end="1126" vertical-scroll-proportion="1.5648855">
+        <state line="14" column="0" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/screens/AbstractScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="22" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/services/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/se/olofkarlsson/java/platformer/domain/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="8" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.28546712">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

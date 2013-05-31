@@ -1,6 +1,4 @@
-package se.olofkarlsson.java.platformer.GameObjects;
-
-import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
+package se.olofkarlsson.java.platformer.gameobjects;
 
 //public class Projectile extends MovableEntity {
     /*

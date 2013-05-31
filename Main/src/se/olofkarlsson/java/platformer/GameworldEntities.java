@@ -1,12 +1,5 @@
 package se.olofkarlsson.java.platformer;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import se.olofkarlsson.java.platformer.GameObjects.Core.CollisionEntity;
-import se.olofkarlsson.java.platformer.GameObjects.Core.GameObject;
-import se.olofkarlsson.java.platformer.GameObjects.Core.MovableEntity;
-
 public class GameworldEntities {
     /*
 	public static List<GameObject> entities;

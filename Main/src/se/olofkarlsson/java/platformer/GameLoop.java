@@ -3,9 +3,8 @@ package se.olofkarlsson.java.platformer;
 import com.badlogic.gdx.Game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.FPSLogger;
-import se.olofkarlsson.java.platformer.Screens.SplashScreen;
+import se.olofkarlsson.java.platformer.screens.SplashScreen;
 
 public class GameLoop extends Game {
 

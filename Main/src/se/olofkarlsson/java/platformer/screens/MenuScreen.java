@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.platformer.Screens;
+package se.olofkarlsson.java.platformer.screens;
 
 import se.olofkarlsson.java.platformer.GameLoop;
 

@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.platformer.GameObjects;
+package se.olofkarlsson.java.platformer.gameobjects;
 
 //public class Arrow extends Projectile {
     /*

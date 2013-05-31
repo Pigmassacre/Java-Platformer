@@ -1,4 +1,4 @@
-package se.olofkarlsson.java.platformer.GameObjects.Core;
+package se.olofkarlsson.java.platformer.gameobjects.core;
 
 public abstract class GameObject {
     /*
